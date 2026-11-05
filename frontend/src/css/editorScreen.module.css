@@ -1,0 +1,1460 @@
+/* EditorScreen CSS Module */
+
+.editorContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+/* --- Top Header Bar --- */
+.topBar {
+  height: 60px;
+  min-height: 60px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 30;
+  box-sizing: border-box;
+}
+
+.topBarLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.backBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.backBtn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+.docIconBadge {
+  width: 28px;
+  height: 28px;
+  background-color: #2563eb;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  padding: 5px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.docIconBarLong {
+  width: 14px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 1px;
+}
+
+.docIconBarMed {
+  width: 10px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 1px;
+  align-self: flex-start;
+  margin-left: 2px;
+}
+
+.docTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.docTitleInput {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 3px 6px;
+  background: transparent;
+  outline: none;
+  transition: all 0.15s ease;
+  max-width: 260px;
+}
+
+.docTitleInput:hover,
+.docTitleInput:focus {
+  border-color: #cbd5e1;
+  background-color: #f8fafc;
+}
+
+.docEditPencil {
+  color: #94a3b8;
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+  transition: color 0.15s ease;
+}
+
+.docEditPencil:hover {
+  color: #2563eb;
+}
+
+.topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.downloadBtn {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+  transition: all 0.15s ease;
+}
+
+.downloadBtn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+}
+
+.downloadBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* --- 3-Column Workspace --- */
+.editorWorkspace {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* --- Left Sidebar (Pages / Fields Tabs) --- */
+.leftSidebar {
+  width: 220px;
+  min-width: 220px;
+  background-color: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.tabsHeader {
+  padding: 12px;
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tabBtn {
+  flex: 1;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+.tabBtn:hover {
+  color: #0f172a;
+}
+
+.tabBtnActive {
+  border-color: #2563eb;
+  color: #2563eb;
+  background-color: #eff6ff;
+  font-weight: 600;
+}
+
+/* Thumbnails Scroll Area */
+.thumbnailsScroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.thumbnailItem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.thumbnailCard {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.thumbnailCard:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.thumbnailCardActive {
+  border: 2px solid #2563eb !important;
+  box-shadow: 0 0 0 1px #2563eb, 0 4px 14px rgba(37, 99, 235, 0.2) !important;
+}
+
+.thumbnailImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
+.pageNumberBadge {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #64748b;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.pageNumberBadgeActive {
+  border-color: #2563eb;
+  color: #2563eb;
+  background-color: #eff6ff;
+  font-weight: 600;
+}
+
+/* Fields Tab Content */
+.fieldsTabScroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fieldsCountHeader {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  padding: 0 4px 4px 4px;
+}
+
+.detectedFieldCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.detectedFieldCard:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+.detectedFieldCardActive {
+  border: 1.5px solid #2563eb !important;
+  background-color: #eff6ff !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+}
+
+.fieldIndexBadge {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.detectedFieldCardActive .fieldIndexBadge {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+.fieldInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.fieldNameText {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fieldTypeSub {
+  font-size: 11px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+/* --- Center Workspace (Canvas Area) --- */
+.centerWorkspace {
+  flex: 1;
+  background-color: #f1f5f9;
+  background-image: radial-gradient(#d3deec 1.1px, transparent 1.1px);
+  background-size: 20px 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 16px 20px 32px 20px;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+/* Floating Toolbar */
+.canvasFloatingBar {
+  position: sticky;
+  top: 8px;
+  z-index: 25;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+.toolGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.toolDivider {
+  width: 1px;
+  height: 20px;
+  background-color: #e2e8f0;
+}
+
+.iconToolBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.iconToolBtn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.iconToolBtnActive {
+  background-color: #eff6ff !important;
+  color: #2563eb !important;
+  box-shadow: 0 0 0 1px #2563eb;
+}
+
+.toolText {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #334155;
+  padding: 0 4px;
+}
+
+.toolTextBtn {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #334155;
+  padding: 3px 6px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.toolTextBtn:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+/* Document Paper Sheet */
+.paperContainer {
+  position: relative;
+  transform-origin: center top;
+  will-change: transform;
+}
+
+.documentPaper {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+}
+
+.pageImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Bounding Box on Document: Light blue background with blue border */
+.fieldBox {
+  position: absolute;
+  box-sizing: border-box;
+  background-color: rgba(219, 234, 254, 0.45);
+  border: 1px solid #2563eb;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fieldBox:hover {
+  border-color: #1d4ed8;
+  background-color: rgba(191, 219, 254, 0.65);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.25);
+}
+
+.fieldBoxSelected {
+  border: 2px solid #1d4ed8 !important;
+  background-color: rgba(191, 219, 254, 0.75) !important;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.35) !important;
+  z-index: 20 !important;
+}
+
+/* Floating Type Badge Toolbar directly above selected box */
+.floatingFieldBadge {
+  position: absolute;
+  top: -34px;
+  left: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #ffffff;
+  border: 1.5px solid #2563eb;
+  border-radius: 8px;
+  padding: 3px 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.floatingTypeSelect {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+  padding-right: 14px;
+  appearance: none;
+}
+
+/* Field Inner Content */
+.fieldInnerInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 11px;
+  line-height: 1.35;
+  padding: 3px 6px;
+  color: #0f172a;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.fieldInnerInputSingle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 11px;
+  padding: 0 6px;
+  color: #0f172a;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.fieldDateContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  font-size: 11px;
+  font-family: monospace;
+  color: #1e293b;
+}
+
+.fieldCheckboxContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fieldSignatureContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #2563eb;
+  border: 1px dashed #93c5fd;
+  margin: 2px;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+/* Resize Handles */
+.resizeDot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #1664D9;
+  border: 1px solid #ffffff;
+  border-radius: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 25;
+}
+
+.dotNW { top: -4px; left: -4px; cursor: nwse-resize; }
+.dotNE { top: -4px; right: -4px; cursor: nesw-resize; }
+.dotSW { bottom: -4px; left: -4px; cursor: nesw-resize; }
+.dotSE { bottom: -4px; right: -4px; cursor: nwse-resize; }
+
+.deleteHandleBtn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: #ef4444;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 30;
+}
+
+/* --- Right Sidebar (Settings & Form Controls) --- */
+.rightSidebar {
+  width: 330px;
+  min-width: 330px;
+  background-color: #ffffff;
+  border-left: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 20;
+}
+
+/* Base Sidebar: Form Options (Document Settings & Add form field) */
+.formOptionsSidebar {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Overlay Sidebar: Field Settings (opens OVER the current one) */
+.fieldSettingsOverlaySidebar {
+  position: absolute;
+  inset: 0;
+  background-color: #ffffff;
+  z-index: 30;
+  overflow-y: auto;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0.85;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Back to Form Options Button (Opens over the current one) */
+.backToFormOptionsBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1.5px solid #1664D9;
+  background-color: #ffffff;
+  color: #1664D9;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-bottom: 22px;
+  box-sizing: border-box;
+}
+
+.backToFormOptionsBtn:hover {
+  background-color: #eff6ff;
+  border-color: #1355b8;
+  color: #1355b8;
+}
+
+.sidebarSection {
+  margin-bottom: 24px;
+}
+
+.sectionHeading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.01em;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.formLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.textInput {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #0f172a;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.textInput:focus {
+  border-color: #1664D9;
+  box-shadow: 0 0 0 2px rgba(22, 100, 217, 0.1);
+}
+
+.staticField {
+  width: 100%;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #334155;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+.selectInput {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #0f172a;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.selectInput:focus {
+  border-color: #1664D9;
+}
+
+.dashedDivider {
+  border: none;
+  border-top: 1px dashed #e2e8f0;
+  margin: 20px 0;
+}
+
+/* Field Settings Sidebar Specific Controls */
+.fieldTypeRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.selectWrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.selectIconPrefix {
+  position: absolute;
+  left: 12px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.selectInputWithIcon {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 9px 34px 9px 38px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #0f172a;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  appearance: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.selectInputWithIcon:focus {
+  border-color: #1664D9;
+  box-shadow: 0 0 0 2px rgba(22, 100, 217, 0.1);
+}
+
+.selectChevron {
+  position: absolute;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+  color: #64748b;
+  pointer-events: none;
+}
+
+.deleteFieldIconBtn {
+  color: #ef4444;
+  background: transparent;
+  border: 1px solid #fee2e2;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.deleteFieldIconBtn:hover {
+  background-color: #fef2f2;
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+
+.todayBtn {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  color: #1664D9;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.todayBtn:hover {
+  background-color: #dbeafe;
+  color: #1355b8;
+}
+
+/* Icon / Option Cards (Empty / Selected) */
+.iconOptionCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.iconOptionCard {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background-color: #ffffff;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.iconOptionCard:hover {
+  border-color: #cbd5e1;
+  background-color: #f8fafc;
+}
+
+.iconOptionCardActive {
+  border: 1.5px solid #1664D9 !important;
+  background-color: #eff6ff !important;
+  color: #1664D9 !important;
+  font-weight: 600;
+}
+
+/* Color Property Picker */
+.colorPickerBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: #ffffff;
+  margin-top: 6px;
+}
+
+.colorPickerLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.colorSwatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.colorHexText {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.colorOpacityText {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.colorPaletteRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.colorPaletteDot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.colorPaletteDot:hover {
+  transform: scale(1.15);
+}
+
+.colorPaletteDotActive {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #2563eb;
+  transform: scale(1.08);
+}
+
+.sameColorCheckboxRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 7px 10px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.sameColorCheckboxRow:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.sameColorCheckbox {
+  width: 15px;
+  height: 15px;
+  accent-color: #2563eb;
+  cursor: pointer;
+  margin: 0;
+}
+
+.sameColorLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  flex: 1;
+}
+
+/* 2x3 Grid for Add form field */
+.addFieldsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.fieldGridBtn {
+  background-color: #f8fbff;
+  border: 1px solid #e0eefe;
+  border-radius: 10px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.fieldGridBtn:hover {
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+  transform: translateY(-1px);
+}
+
+.fieldGridBtnActive {
+  background-color: #eff6ff !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 1.5px #2563eb;
+}
+
+.fieldGridIcon {
+  color: #2563eb;
+  width: 20px;
+  height: 20px;
+}
+
+.fieldGridLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+/* How to add fields? Help Card */
+.helpCard {
+  background-color: #f8fbff;
+  border: 1px solid #e0eefe;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 8px;
+}
+
+.helpHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.helpList {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 11.5px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.helpList li {
+  margin-bottom: 4px;
+}
+
+/* --- Media Queries --- */
+
+/* Tablet (min-width: 768px) */
+@media only screen and (min-width: 768px) {
+  .leftSidebar {
+    width: 240px;
+    min-width: 240px;
+  }
+
+  .rightSidebar {
+    width: 340px;
+    min-width: 340px;
+  }
+}
+
+/* Desktop (min-width: 1024px) */
+@media only screen and (min-width: 1024px) {
+  .topBar {
+    padding: 0 24px;
+    height: 64px;
+    min-height: 64px;
+  }
+
+  .leftSidebar {
+    width: 260px;
+    min-width: 260px;
+  }
+
+  .rightSidebar {
+    width: 360px;
+    min-width: 360px;
+  }
+
+  .formOptionsSidebar,
+  .fieldSettingsOverlaySidebar {
+    padding: 26px 22px;
+  }
+
+  .docTitleInput {
+    max-width: 360px;
+    font-size: 16px;
+  }
+}
+
+/* Large Desktop (min-width: 1440px) */
+@media only screen and (min-width: 1440px) {
+  .topBar {
+    padding: 0 32px;
+  }
+
+  .leftSidebar {
+    width: 280px;
+    min-width: 280px;
+  }
+
+  .rightSidebar {
+    width: 380px;
+    min-width: 380px;
+  }
+
+  .addFieldsGrid {
+    gap: 12px;
+  }
+
+  .fieldGridBtn {
+    padding: 16px 12px;
+  }
+}
+
+/* 4K / Ultra-wide (min-width: 1920px) */
+@media only screen and (min-width: 1920px) {
+  .leftSidebar {
+    width: 320px;
+    min-width: 320px;
+  }
+
+  .rightSidebar {
+    width: 420px;
+    min-width: 420px;
+  }
+}
+
+/* Field Image & Signature Styles */
+.fieldImageContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+.fieldActionOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.18s ease;
+  border-radius: 3px;
+}
+
+.fieldBox:hover .fieldActionOverlay {
+  opacity: 1;
+}
+
+.fieldActionBtn {
+  background: #ffffff;
+  color: #0f172a;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.15s ease;
+}
+
+.fieldActionBtn:hover {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+/* Download Primary Button */
+.downloadPrimaryBtn {
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+  transition: all 0.15s ease;
+}
+
+.downloadPrimaryBtn:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+  transform: translateY(-1px);
+}
+
+.downloadPrimaryBtn:active {
+  transform: translateY(0);
+}
+
+.downloadPrimaryBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ── Field Properties Panel (redesigned) ── */
+
+/* Font + Size row */
+.fpFontSizeRow {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.fpCol {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.fpColFlex {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.fpColLabel {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.01em;
+}
+
+.fpFontSelect {
+  height: 34px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+  cursor: pointer;
+  outline: none;
+  min-width: 0;
+  width: 100%;
+  appearance: auto;
+  transition: border-color 0.15s ease;
+}
+
+.fpFontSelect:hover {
+  border-color: #94a3b8;
+}
+
+.fpFontSelect:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
+
+.fpSizeStepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8fafc;
+  height: 34px;
+}
+
+.fpSizeBtn {
+  background: transparent;
+  border: none;
+  width: 30px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  user-select: none;
+}
+
+.fpSizeBtn:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.fpSizeBtn:active {
+  background-color: #cbd5e1;
+}
+
+.fpSizeInput {
+  width: 38px;
+  height: 34px;
+  border: none;
+  border-left: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  background: #ffffff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  outline: none;
+  padding: 0;
+  -moz-appearance: textfield;
+}
+
+.fpSizeInput::-webkit-outer-spin-button,
+.fpSizeInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.fpSizeUnit {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #64748b;
+  padding: 0 8px 0 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Text Formatting row */
+.fpFormattingLabel {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #475569;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+
+.fpFormattingRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.fpFormatGroup {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.fpFormatBtn {
+  background: transparent;
+  border: none;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  position: relative;
+}
+
+.fpFormatBtn:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.fpFormatBtnActive {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.fpFormatBtnActive:hover {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.fpFormatDivider {
+  width: 1px;
+  height: 22px;
+  background: #e2e8f0;
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+
+/* Color section label */
+.fpColorLabel {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #475569;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+
+
+

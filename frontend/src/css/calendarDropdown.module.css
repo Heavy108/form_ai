@@ -1,0 +1,181 @@
+/* CalendarDropdown CSS Module - Light Theme */
+
+.calendarContainer {
+  width: 270px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+  z-index: 100;
+  box-sizing: border-box;
+  user-select: none;
+  color: #0f172a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  animation: calendarPop 0.15s ease-out;
+}
+
+@keyframes calendarPop {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.navArrowBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.navArrowBtn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+.selectGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.jumperSelect {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 7px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+  outline: none;
+  cursor: pointer;
+}
+
+.jumperSelect:hover {
+  border-color: #cbd5e1;
+}
+
+.weekdayGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.weekdayLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  padding: 4px 0;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  place-items: center;
+  margin-bottom: 12px;
+}
+
+.dayBtn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 500;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dayBtn:hover {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.dayBtnToday {
+  border: 1.5px solid #2563eb;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.dayBtnSelected {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+}
+
+.dayBtnDisabled {
+  color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.dayBtnDisabled:hover {
+  background: transparent;
+  color: #cbd5e1;
+}
+
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.quickActionBtn {
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  color: #2563eb;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.quickActionBtn:hover {
+  background-color: #dbeafe;
+}
+
+.clearBtn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 11.5px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.clearBtn:hover {
+  color: #dc2626;
+}
